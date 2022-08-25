@@ -18,7 +18,10 @@ final List<Widget> imageSliders = imgList
                 borderRadius: BorderRadius.all(Radius.circular(5.0)),
                 child: Stack(
                   children: <Widget>[
-                    Image.network(item, fit: BoxFit.fitWidth, width: 1000.0),
+                    Image.network(
+                      item,
+                      fit: BoxFit.cover,
+                    ),
                     Positioned(
                       bottom: 0.0,
                       left: 0.0,
@@ -74,7 +77,7 @@ class _FullscreenSliderState extends State<FullscreenSlider> {
         children: [
           Builder(
             builder: (context) {
-              final double height = MediaQuery.of(context).size.height;
+              final double height = MediaQuery.of(context).size.height * 0.95;
               final double width = MediaQuery.of(context).size.width;
               return CarouselSlider(
                 carouselController: _controller,
@@ -90,7 +93,7 @@ class _FullscreenSliderState extends State<FullscreenSlider> {
                         child: Center(
                           child: Image.network(
                             item,
-                            fit: BoxFit.fitWidth,
+                            fit: BoxFit.cover,
                             width: width,
                           ),
                         ),
@@ -100,7 +103,7 @@ class _FullscreenSliderState extends State<FullscreenSlider> {
               );
             },
           ),
-                    Row(
+          Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
               Flexible(
