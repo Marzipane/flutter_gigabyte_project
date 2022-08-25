@@ -14,10 +14,48 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
+    final double height = MediaQuery.of(context).size.height * 0.95;
+    final double width = MediaQuery.of(context).size.width;
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(children: [
-          FullscreenSlider(),
+          Stack(children: [
+            Stack(children: [
+              FullscreenSlider(),
+              Container(
+                width: width,
+                height: height,
+                decoration: BoxDecoration(boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey.withOpacity(0.3),
+                    spreadRadius: 2,
+                    blurRadius: 20,
+                  ),
+                ]),
+              ),
+            ]),
+            Column(
+              children: [
+                HeaderBar(),
+                Row(
+                  children: [
+                    Expanded(
+                      child: Container(
+                        child: Text('1'),
+                        color: Colors.blue,
+                      ),
+                    ),
+                    Expanded(
+                      child: Container(
+                        color: Colors.red,
+                        child: Text('2'),
+                      ),
+                    )
+                  ],
+                )
+              ],
+            ),
+          ]),
           GridView.count(
             // Create a grid with 2 columns. If you change the scrollDirection to
             // horizontal, this produces 2 rows.

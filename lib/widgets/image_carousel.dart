@@ -80,31 +80,55 @@ class _FullscreenSliderState extends State<FullscreenSlider> {
               final double height = MediaQuery.of(context).size.height * 0.95;
               final double width = MediaQuery.of(context).size.width;
               return CarouselSlider(
-                carouselController: _controller,
-                options: CarouselOptions(
-                  height: height,
-                  viewportFraction: 1.0,
-                  enlargeCenterPage: false,
-                  // autoPlay: false,
-                ),
-                items: imgList
-                    .map(
-                      (item) => Container(
-                        child: Center(
-                          child: Image.network(
-                            item,
-                            fit: BoxFit.cover,
-                            width: width,
-                          ),
-                        ),
-                      ),
-                    )
-                    .toList(),
-              );
+                  carouselController: _controller,
+                  options: CarouselOptions(
+                    height: height,
+                    viewportFraction: 1.0,
+                    enlargeCenterPage: false,
+                    autoPlay: false,
+                  ),
+                  items: imgList
+                      .map((item) => Stack(
+                            children: <Widget>[
+                              Image.network(
+                                item,
+                                fit: BoxFit.cover,
+                                width: width,
+                              ),
+                              Positioned(
+                                bottom: 0.0,
+                                left: 0.0,
+                                right: 0.0,
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                    gradient: LinearGradient(
+                                      colors: [
+                                        Color.fromARGB(200, 0, 0, 0),
+                                        Color.fromARGB(0, 0, 0, 0)
+                                      ],
+                                      begin: Alignment.bottomCenter,
+                                      end: Alignment.topCenter,
+                                    ),
+                                  ),
+                                  padding: EdgeInsets.symmetric(
+                                      vertical: 10.0, horizontal: 20.0),
+                                  child: Text(
+                                    '${imgList.indexOf(item) + 1}',
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 20.0,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ))
+                      .toList());
             },
           ),
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.end,
             children: <Widget>[
               Flexible(
                 child: ElevatedButton(
