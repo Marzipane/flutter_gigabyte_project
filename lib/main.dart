@@ -5,6 +5,15 @@ import 'generated/l10n.dart';
 
 void main() {
   runApp(MaterialApp(
+    theme: ThemeData(
+        textTheme: TextTheme(
+          bodyText1: TextStyle(),
+          bodyText2: TextStyle(),
+        ).apply(
+          bodyColor: Colors.white,
+          displayColor: Colors.blue,
+        ),
+        iconTheme: IconThemeData(color: Colors.white, size: 22)),
     debugShowCheckedModeBanner: false,
     onGenerateRoute: RouteGenerator.generateRoute,
     localizationsDelegates: const [
