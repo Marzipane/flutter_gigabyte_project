@@ -7,21 +7,22 @@ class HeaderBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    bool isTablet = MediaQuery.of(context).size.width <= 1150;
     return (Row(
       children: [
-        const Expanded(
-            flex: 3,
+        Expanded(
+            flex: 1,
             child: Text(
               'Marzipane.',
               style: TextStyle(
-                  fontSize: 45,
+                  fontSize: isTablet ? 18 : 45,
                   color: Colors.white,
                   fontWeight: FontWeight.bold),
             )),
         Expanded(
           flex: 3,
           child:
-              Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+              Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
             InkWell(
               onTap: () {},
               child: Text(S.of(context).header_home,
@@ -56,17 +57,22 @@ class HeaderBar extends StatelessWidget {
             ),
           ]),
         ),
-        const Expanded(
-          flex: 5,
-          child: Align(
-            alignment: Alignment.bottomRight,
-            child: Icon(
-              Icons.search,
-              size: 50,
-              color: Colors.white,
-            ),
+        Expanded(
+          flex: 1,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              InkWell(
+                onTap: () {},
+                child: Icon(
+                  Icons.search,
+                  size: 40,
+                  color: Colors.white,
+                ),
+              ),
+            ],
           ),
-        ),
+        )
       ],
     ));
   }
