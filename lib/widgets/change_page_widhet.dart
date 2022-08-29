@@ -21,8 +21,10 @@ class _ChangePageWidgetState extends State<ChangePageWidget> {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        widget._controller.jumpToPage(widget.indexOfImage);
-        pageIndex = widget.indexOfImage;
+        setState(() {
+          pageIndex = widget.indexOfImage;
+        });
+        widget._controller.jumpToPage(pageIndex);
         print(pageIndex);
       },
       child: Container(

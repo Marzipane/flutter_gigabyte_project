@@ -8,10 +8,7 @@ void main() {
     theme: ThemeData(
         textTheme: TextTheme(
           bodyText1: TextStyle(),
-          bodyText2: TextStyle(),
-        ).apply(
-          bodyColor: Colors.white,
-          displayColor: Colors.blue,
+          bodyText2: TextStyle(color: Colors.black, fontSize: 16),
         ),
         iconTheme: IconThemeData(color: Colors.white, size: 22)),
     debugShowCheckedModeBanner: false,
