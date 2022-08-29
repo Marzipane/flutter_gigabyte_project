@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../utilities/image_data.dart';
+import '../utilities/post_data.dart';
 import '../widgets/change_page_widhet.dart';
 import '../widgets/header_bar.dart';
 import '../widgets/image_carousel.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import '../widgets/media_bar.dart';
+
 int pageIndex = 0;
 
 class HomePage extends StatefulWidget {
@@ -17,7 +19,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final CarouselController _controller = CarouselController();
-  
+
   @override
   void initState() {
     // TODO: implement initState
@@ -33,23 +35,291 @@ class _HomePageState extends State<HomePage> {
       body: SingleChildScrollView(
         child: Column(children: [
           buildGallery(width, height, barHeight),
-          GridView.count(
-            // Create a grid with 2 columns. If you change the scrollDirection to
-            // horizontal, this produces 2 rows.
-            crossAxisCount: 4,
-            shrinkWrap: true,
-            // Generate 100 widgets that display their index in the List.
-            children: List.generate(12, (index) {
-              return Container(
-                  decoration: BoxDecoration(
-                    color: Colors.grey,
-                    border: Border.all(),
-                    // color: Colors.grey[300],
+          Divider(thickness: 3, color: Colors.black.withOpacity(0.3)),
+          buildPostsBlock(width),
+          Container(
+            color: Colors.grey.withOpacity(0.2),
+            height: width <= 1000 ? height * 1.1 : height * 0.5,
+            padding: EdgeInsets.only(left: 20, right: 20, top: 40, bottom: 20),
+            child:
+                Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+              Wrap(
+                children: [
+                  Container(
+                    width: 300,
+                    child: Column(
+                      children: [
+                        Text('ABOUT OUR SITE'),
+                        Divider(
+                          color: Colors.black.withOpacity(0.7),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Column(
+                          children: [
+                            Text(
+                                'SHIT SHIT SHIT SHIT SHIT SHIT SHIT SHITSHIT SHIT SHIT SHIT SHIT SHIT SHIT SHITSHIT SHIT SHIT SHIT SHIT SHIT SHIT SHITSHIT SHIT SHIT SHIT SHIT SHIT SHIT SHITSHIT SHIT SHIT SHIT SHIT SHIT SHIT SHIT'),
+                          ],
+                        )
+                      ],
+                    ),
                   ),
-                  child: Center(child: Text('${index + 1}')));
-            }),
-          ),
+                  SizedBox(width: 50),
+                  Container(
+                    width: 200,
+                    child: Column(
+                      children: [
+                        Text('SITE LINKS'),
+                        Divider(
+                          color: Colors.black.withOpacity(0.7),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text('About us'),
+                            SizedBox(
+                              height: 5,
+                            ),
+                            Text('Blog'),
+                            SizedBox(
+                              height: 5,
+                            ),
+                            Text('FAQ'),
+                            SizedBox(
+                              height: 5,
+                            ),
+                            Text('Terms'),
+                            SizedBox(
+                              height: 5,
+                            ),
+                            Text('Privacy Policy'),
+                          ],
+                        ),
+                        SizedBox(
+                          width: 20,
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(width: 30),
+                  Container(
+                    width: 200,
+                    child: Column(
+                      // crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text('FOLLOW US'),
+                        Divider(
+                          color: Colors.black.withOpacity(0.7),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text('Twitter'),
+                            SizedBox(
+                              height: 5,
+                            ),
+                            Text('Facebook'),
+                            SizedBox(
+                              height: 5,
+                            ),
+                            Text('Dribbble'),
+                            SizedBox(
+                              height: 5,
+                            ),
+                            Text('Instagram'),
+                            SizedBox(
+                              height: 5,
+                            ),
+                            Text('Pinterest'),
+                            SizedBox(
+                              height: 5,
+                            ),
+                          ],
+                        ),
+                        SizedBox(
+                          width: 20,
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                    width: 300,
+                  ),
+                  Container(
+                    width: 300,
+                    child: Column(
+                      children: [
+                        Text('SIGN UP FOR NEWSLETTER'),
+                        Divider(
+                          color: Colors.black.withOpacity(0.7),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                                'Signup to get updates on articles, interviews and events.'),
+                            SizedBox(
+                              height: 10,
+                            ),
+                            TextField(
+                              decoration: InputDecoration(
+                                enabledBorder: OutlineInputBorder(
+                                  borderSide:
+                                      BorderSide(width: 2, color: Colors.black),
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderSide:
+                                      BorderSide(width: 2, color: Colors.black),
+                                ),
+                              ),
+                            ),
+                            Text(''),
+                            ElevatedButton(
+                                onPressed: () {}, child: Text('SUBSCRIBE')),
+                          ],
+                        )
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+              Wrap(
+                children: [
+                  Row(
+                    children: [],
+                  )
+                ],
+              ),
+            ]),
+          )
         ]),
+      ),
+    );
+  }
+
+  Container buildPostsBlock(double width) {
+    return Container(
+      margin: const EdgeInsets.symmetric(
+        vertical: 60,
+        // horizontal: 30,
+      ),
+      child: Column(
+        children: [
+          Wrap(
+            spacing: 10,
+            runSpacing: 40,
+            alignment: WrapAlignment.start,
+            runAlignment: WrapAlignment.start,
+            children: postDataList
+                .map(
+                  (post) => Container(
+                    width: width <= 750
+                        ? width * 0.8
+                        : width <= 1000
+                            ? width * 0.4
+                            : width <= 1250
+                                ? width * 0.3
+                                : width <= 1450
+                                    ? width * 0.23
+                                    : width * 0.23,
+                    padding: const EdgeInsets.all(30),
+                    decoration: BoxDecoration(
+                      border: Border(
+                        top: BorderSide(
+                          color: Colors.grey.withOpacity(0.3),
+                        ),
+                        right: BorderSide(
+                          color: Colors.grey.withOpacity(0.3),
+                        ),
+                        left: BorderSide(
+                          color: Colors.grey.withOpacity(0.3),
+                        ),
+                      ),
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Center(
+                          child: Image.asset(
+                            post['link']!,
+                            // height: height * 0.,
+                          ),
+                        ),
+                        SizedBox(
+                          height: 15,
+                        ),
+                        Text(
+                          'Item ${post['title']}',
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 27),
+                        ),
+                        SizedBox(
+                          height: 15,
+                        ),
+                        Row(
+                          children: [
+                            Text(
+                              'By:',
+                              style: TextStyle(color: Colors.black),
+                            ),
+                            SizedBox(width: 3),
+                            Text(
+                              post['creator']!,
+                              style: TextStyle(color: Colors.black),
+                            ),
+                            SizedBox(width: 3),
+                          ],
+                        ),
+                        SizedBox(
+                          height: 3,
+                        ),
+                        Text(
+                          post['style']!,
+                          style: TextStyle(color: Colors.black),
+                        ),
+                        SizedBox(
+                          height: 15,
+                        ),
+                        Text(
+                          'Item ${post['description']}',
+                          style: TextStyle(color: Colors.black),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        InkWell(
+                          onTap: () {},
+                          child: Text(
+                            'Read more..',
+                            style: TextStyle(color: Colors.blue, fontSize: 18),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                )
+                .toList(),
+          ),
+          SizedBox(
+            height: 30,
+          ),
+          Text(
+            'PAGINATOR',
+            style: TextStyle(color: Colors.black),
+          ),
+        ],
       ),
     );
   }
@@ -88,24 +358,23 @@ class _HomePageState extends State<HomePage> {
               height: height * 0.3,
             ),
             MediaBar(barHeight: barHeight),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             Row(
               children: [
-                SizedBox(
+                const SizedBox(
                   width: 30,
                 ),
                 ChangePageWidget(controller: _controller, indexOfImage: 0),
-                SizedBox(
+                const SizedBox(
                   width: 5,
                 ),
                 ChangePageWidget(controller: _controller, indexOfImage: 1),
-                SizedBox(
+                const SizedBox(
                   width: 5,
                 ),
                 ChangePageWidget(controller: _controller, indexOfImage: 2),
-
                 // ...Iterable<int>.generate(dataList.length)
                 //     .map((int pageIndex) => Flexible(
                 //           child: InkWell(
@@ -130,26 +399,35 @@ class _HomePageState extends State<HomePage> {
               Container(
                 width: 50,
                 height: 50,
-                color: Colors.white,
+                color: Colors.white.withOpacity(1),
                 child: InkWell(
                   child: Center(
                     child:
                         FaIcon(FontAwesomeIcons.arrowLeft, color: Colors.black),
                   ),
                   onTap: () {
-                    if (pageIndex <= 0) {
-                      pageIndex = dataList.length;
-                    }
-                    pageIndex--;
-                    print(pageIndex);
+                    setState(() {
+                      if (pageIndex <= 0) {
+                        pageIndex = dataList.length;
+                      }
+                      pageIndex--;
+                    });
                     _controller.previousPage();
                   },
                 ),
               ),
+              SizedBox(
+                  // width: 50,
+                  height: 50,
+                  width: 3,
+                  child: VerticalDivider(
+                    color: Colors.grey,
+                    thickness: 3,
+                  )),
               Container(
                 width: 50,
                 height: 50,
-                color: Colors.white,
+                color: Colors.white.withOpacity(1),
                 child: InkWell(
                   child: Center(
                       child: FaIcon(
@@ -157,12 +435,14 @@ class _HomePageState extends State<HomePage> {
                     color: Colors.black,
                   )),
                   onTap: () {
-                    if (pageIndex >= dataList.length - 1) {
-                      pageIndex = 0;
-                      pageIndex--;
-                    }
-                    pageIndex++;
-                    print(pageIndex);
+                    setState(() {
+                      if (pageIndex >= dataList.length - 1) {
+                        pageIndex = 0;
+                        pageIndex--;
+                      }
+
+                      pageIndex++;
+                    });
                     _controller.nextPage();
                   },
                 ),

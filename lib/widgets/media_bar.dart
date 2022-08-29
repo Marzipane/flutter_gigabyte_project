@@ -29,11 +29,13 @@ class MediaBar extends StatelessWidget {
                         child: Text(
                           'Follow',
                           style: TextStyle(
-                              fontSize: 14, fontWeight: FontWeight.bold),
+                              fontSize: 14,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white),
                         ),
                       ),
                       const SizedBox(
-                        height:40,
+                        height: 40,
                         child: VerticalDivider(
                           color: Colors.white,
                           thickness: 1.5,
