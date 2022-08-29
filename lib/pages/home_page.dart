@@ -3,6 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../utilities/image_data.dart';
 import '../utilities/post_data.dart';
 import '../widgets/change_page_widhet.dart';
+import '../widgets/footer.dart';
 import '../widgets/header_bar.dart';
 import '../widgets/image_carousel.dart';
 import 'package:carousel_slider/carousel_slider.dart';
@@ -31,219 +32,14 @@ class _HomePageState extends State<HomePage> {
     final double height = MediaQuery.of(context).size.height;
     final double barHeight = MediaQuery.of(context).size.height;
     final double width = MediaQuery.of(context).size.width;
+    final bool isShowSlider = MediaQuery.of(context).size.width <= 900; 
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(children: [
           buildGallery(width, height, barHeight),
           Divider(thickness: 3, color: Colors.black.withOpacity(0.3)),
           buildPostsBlock(width),
-          Container(
-            color: Colors.grey.withOpacity(0.2),
-            height: width <= 700 ? height * 1 : height * 0.75,
-            padding: EdgeInsets.only(
-                left: width <= 1250 ? 40 : 20,
-                right: width <= 1250 ? 40 : 20,
-                top: width <= 500 ? 40 : 80,
-                bottom: 10),
-            child:
-                Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-              Wrap(
-                children: [
-                  Container(
-                    width: width <= 700
-                        ? width * 0.8
-                        : width <= 1200
-                            ? width * 0.4
-                            : width * 0.2,
-                    child: Column(
-                      children: [
-                        Text('ABOUT OUR SITE'),
-                        Divider(
-                          color: Colors.black.withOpacity(0.7),
-                        ),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        Column(
-                          children: [
-                            Text(
-                                'SHIT SHIT SHIT SHIT SHIT SHIT SHIT SHITSHIT SHIT SHIT SHIT SHIT SHIT SHIT SHITSHIT SHIT SHIT SHIT SHIT SHIT SHIT SHITSHIT SHIT SHIT SHIT SHIT SHIT SHIT SHITSHIT SHIT SHIT SHIT SHIT SHIT SHIT SHIT'),
-                          ],
-                        )
-                      ],
-                    ),
-                  ),
-                  SizedBox(width: width <= 700 ? 0 : 50),
-                  Container(
-                    padding:
-                        EdgeInsets.only(top: width <= 700 ? height * 0.08 : 0),
-                    width: width <= 400
-                        ? width * 0.28
-                        : width <= 700
-                            ? width * 0.35
-                            : width * 0.15,
-                    child: Column(
-                      children: [
-                        Text('SITE LINKS'),
-                        Divider(
-                          color: Colors.black.withOpacity(0.7),
-                        ),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text('About us'),
-                            SizedBox(
-                              height: 5,
-                            ),
-                            Text('Blog'),
-                            SizedBox(
-                              height: 5,
-                            ),
-                            Text('FAQ'),
-                            SizedBox(
-                              height: 5,
-                            ),
-                            Text('Terms'),
-                            SizedBox(
-                              height: 5,
-                            ),
-                            Text('Privacy Policy'),
-                          ],
-                        ),
-                        SizedBox(
-                          width: 20,
-                        ),
-                      ],
-                    ),
-                  ),
-                  SizedBox(width: 30),
-                  Container(
-                    padding:
-                        EdgeInsets.only(top: width <= 700 ? height * 0.08 : 0),
-                    width: width <= 400
-                        ? width * 0.28
-                        : width <= 700
-                            ? width * 0.35
-                            : width * 0.15,
-                    child: Column(
-                      // crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text('FOLLOW US'),
-                        Divider(
-                          color: Colors.black.withOpacity(0.7),
-                        ),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text('Twitter'),
-                            SizedBox(
-                              height: 5,
-                            ),
-                            Text('Facebook'),
-                            SizedBox(
-                              height: 5,
-                            ),
-                            Text('Dribbble'),
-                            SizedBox(
-                              height: 5,
-                            ),
-                            Text('Instagram'),
-                            SizedBox(
-                              height: 5,
-                            ),
-                            Text('Pinterest'),
-                            SizedBox(
-                              height: 5,
-                            ),
-                          ],
-                        ),
-                        SizedBox(
-                          width: 20,
-                        ),
-                      ],
-                    ),
-                  ),
-                  SizedBox(
-                    width: width <= 1100 ? 0 : width * 0.15,
-                  ),
-                  Container(
-                    padding:
-                        EdgeInsets.only(top: width <= 1250 ? height * 0.08 : 0),
-                    width: width <= 700
-                        ? width * 0.8
-                        : width <= 1000
-                            ? width * 0.35
-                            : width * 0.25,
-                    child: Center(
-                      child: Column(
-                        children: [
-                          Text('SIGN UP FOR NEWSLETTER'),
-                          Divider(
-                            color: Colors.black.withOpacity(0.7),
-                          ),
-                          SizedBox(
-                            height: 10,
-                          ),
-                          Column(
-                            crossAxisAlignment: width <= 1250
-                                ? CrossAxisAlignment.start
-                                : CrossAxisAlignment.center,
-                            children: [
-                              Text(
-                                  'Signup to get updates on articles, interviews and events.'),
-                              SizedBox(
-                                height: 10,
-                              ),
-                              TextField(
-                                decoration: InputDecoration(
-                                  enabledBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(
-                                        width: 2, color: Colors.black),
-                                  ),
-                                  focusedBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(
-                                        width: 2, color: Colors.black),
-                                  ),
-                                ),
-                              ),
-                              Text(''),
-                              InkWell(
-                                onTap: () {},
-                                child: Container(
-                                  decoration: BoxDecoration(
-                                      color: Colors.black,
-                                      borderRadius: BorderRadius.circular(4)),
-                                  padding: EdgeInsets.all(12),
-                                  child: Text(
-                                    'Subscribe',
-                                    style: TextStyle(
-                                        color: Colors.white, fontSize: 18),
-                                  ),
-                                ),
-                              )
-                            ],
-                          )
-                        ],
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-              Wrap(
-                children: [
-                  Row(
-                    children: [],
-                  )
-                ],
-              ),
-            ]),
-          )
+          Footer(width: width, height: height)
         ]),
       ),
     );
@@ -355,11 +151,73 @@ class _HomePageState extends State<HomePage> {
                 .toList(),
           ),
           SizedBox(
-            height: 30,
+            height: 100,
           ),
-          Text(
-            'PAGINATOR',
-            style: TextStyle(color: Colors.black),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              SizedBox(
+                width: width <= 500
+                    ? width * 0.9
+                    : width <= 1000
+                        ? width * 0.7
+                        : width * 0.4,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    InkWell(
+                      onTap: () {},
+                      child: Text(
+                        'Prev',
+                        style: TextStyle(fontSize: 24),
+                      ),
+                    ),
+                    InkWell(
+                      child: Container(
+                        padding: EdgeInsets.all(10.0),
+                        color: Colors.black,
+                        child: Text(
+                          '1',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 24,
+                          ),
+                        ),
+                      ),
+                    ),
+                    // NumberButton(
+                    //   number: 1,
+                    // ),
+                    NumberButton(
+                      number: 2,
+                    ),
+                    NumberButton(
+                      number: 3,
+                    ),
+                    NumberButton(
+                      number: 4,
+                    ),
+                    NumberButton(
+                      number: 5,
+                    ),
+                    Text(
+                      '...',
+                      style: TextStyle(fontSize: 24),
+                    ),
+                    NumberButton(
+                      number: 8,
+                    ),
+                    InkWell(
+                      onTap: () {},
+                      child: Text(
+                        'Next',
+                        style: TextStyle(fontSize: 24),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
           ),
         ],
       ),
@@ -394,7 +252,7 @@ class _HomePageState extends State<HomePage> {
                   // blurRadius: 20,
                 ),
               ]),
-              child: const HeaderBar(),
+              child:  const HeaderBar(),
             ),
             SizedBox(
               height: height * 0.3,
@@ -493,6 +351,26 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
       ],
+    );
+  }
+}
+
+class NumberButton extends StatelessWidget {
+  const NumberButton({Key? key, required this.number}) : super(key: key);
+
+  final int number;
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: () {},
+      child: Text(
+        '$number',
+        style: TextStyle(
+          color: Colors.black,
+          fontSize: 24,
+        ),
+      ),
     );
   }
 }
