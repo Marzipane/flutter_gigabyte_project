@@ -1,11 +1,10 @@
 import 'package:carousel_slider/carousel_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-
-import 'change_page_widget.dart';
-import 'header_bar.dart';
-import 'image_carousel.dart';
-import 'media_bar.dart';
+import 'change_page_button_widget.dart';
+import 'header_bar_widget.dart';
+import 'full_screen_slider_widget.dart';
+import 'media_bar_widget.dart';
 class ImageGalleryWidget extends StatelessWidget {
   ImageGalleryWidget({
     Key? key,
@@ -22,7 +21,7 @@ class ImageGalleryWidget extends StatelessWidget {
     return Stack(
       children: [
         Stack(children: [
-    FullscreenSlider(
+    FullscreenSliderWidget(
       controller: _controller,
     ),
     Container(
@@ -37,11 +36,11 @@ class ImageGalleryWidget extends StatelessWidget {
         ]),
         Column(
     children: [
-      const HeaderBar(),
+      const HeaderBarWidget(),
       SizedBox(
         height: height * 0.3,
       ),
-      MediaBar(barHeight: height),
+      MediaBarWidget(barHeight: height),
       const SizedBox(
         height: 10,
       ),

@@ -24,11 +24,11 @@ class _ChangePageButtonWidgetState extends State<ChangePageButtonWidget> {
       },
       child: Container(
         width: 40,
-        color: Colors.white.withOpacity(0.5),
+        color: Colors.white.withOpacity(0.3),
         child: Center(
           child: Text(
             '${widget.indexOfImage + 1}',
-            style: TextStyle(fontSize: 30),
+            style: TextStyle(fontSize: 30, color: Colors.white),
           ),
         ),
       ),

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../widgets/footer.dart';
+import '../widgets/footer_widget.dart';
 import '../widgets/image_gallery_widget.dart';
 import '../widgets/posts_widget.dart';
 
@@ -15,7 +15,6 @@ class _HomePageState extends State<HomePage> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
   }
 
@@ -28,7 +27,7 @@ class _HomePageState extends State<HomePage> {
           ImageGalleryWidget(),
           Divider(thickness: 3, color: Colors.black.withOpacity(0.3)),
           PostsWidget(),
-          Footer()
+          FooterWidget()
         ]),
       ),
     );

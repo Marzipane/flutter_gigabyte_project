@@ -1,16 +1,44 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_giga_app/pages/about_page.dart';
+import 'package:flutter_giga_app/pages/contacts_page.dart';
 import 'pages/home_page.dart';
 import 'pages/error_page.dart';
+import 'pages/projects_page.dart';
 
 class RouteGenerator {
-  static Route<dynamic> generateRoute(dynamic settings) {
-    if (settings.name == '/') {
-      return MaterialPageRoute(builder: (context) {
-        return const HomePage();
-      });
+  static Route<dynamic> generateRoute(RouteSettings settings) {
+    switch (settings.name) {
+      case '/':
+        {
+          return createRoute(page: const HomePage());
+        }
+      case AboutPage.routeName:
+        {
+          return createRoute(page: const AboutPage());
+        }
+      case ContactsPage.routeName:
+        {
+          return createRoute(page: const ContactsPage());
+        }
+      case ProjectsPage.routeName:
+        {
+          return createRoute(page: const ProjectsPage());
+        }
+
+      default:
+        {
+          return createRoute(page: const ErrorPage());
+        }
     }
-    return MaterialPageRoute(builder: (context) => const ErrorPage());
   }
+}
+
+MaterialPageRoute createRoute({settings, required Widget page}) {
+  return MaterialPageRoute(
+      builder: (context) {
+        return page;
+      },
+      settings: settings);
 }
 
 class HeroDialogRoute<T> extends PageRoute<T> {

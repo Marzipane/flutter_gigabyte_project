@@ -1,17 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_giga_app/pages/about_page.dart';
+import 'package:flutter_giga_app/pages/projects_page.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../../generated/l10n.dart';
+import '../pages/contacts_page.dart';
 import '../route_generator.dart';
 import 'menu_widget.dart';
 
-class HeaderBar extends StatefulWidget {
-  const HeaderBar({super.key});
+class HeaderBarWidget extends StatefulWidget {
+  const HeaderBarWidget({super.key});
 
   @override
-  State<HeaderBar> createState() => _HeaderBarState();
+  State<HeaderBarWidget> createState() => _HeaderBarWidgetState();
 }
 
-class _HeaderBarState extends State<HeaderBar> {
+class _HeaderBarWidgetState extends State<HeaderBarWidget> {
   bool isSearchTapped = false;
   final TextEditingController searchController = TextEditingController();
   @override
@@ -39,8 +42,7 @@ class _HeaderBarState extends State<HeaderBar> {
           SizedBox(
             height: 10,
           ),
-          Container(
-            // color: Colors.black.withOpacity(0.3),
+          SizedBox(
             width: width <= 620
                 ? width * 0.7
                 : width <= 1100
@@ -94,7 +96,7 @@ class _HeaderBarState extends State<HeaderBar> {
   }
 
   Container buildNormalHeader(
-      bool isTablet, bool isShowSlider, BuildContext , width) {
+      bool isTablet, bool isShowSlider, BuildContext, width) {
     return Container(
       padding: const EdgeInsets.all(8.0),
       decoration: BoxDecoration(boxShadow: [
@@ -106,12 +108,21 @@ class _HeaderBarState extends State<HeaderBar> {
         children: [
           Expanded(
               flex: 1,
-              child: Text(
-                'Marzipane.',
-                style: TextStyle(
-                    fontSize: width <= 310 ? 20 :isTablet ? 30 : 45,
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold),
+              child: InkWell(
+                onTap: () {
+                  Navigator.pushNamed(context, '/');
+                },
+                child: Text(
+                  'Marzipane.',
+                  style: TextStyle(
+                      fontSize: width <= 310
+                          ? 20
+                          : isTablet
+                              ? 30
+                              : 45,
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold),
+                ),
               )),
           !isShowSlider
               ? Expanded(
@@ -120,7 +131,8 @@ class _HeaderBarState extends State<HeaderBar> {
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         InkWell(
-                          onTap: () {},
+                          onTap: () =>
+                              {Navigator.popAndPushNamed(context, '/')},
                           child: Text(S.of(context).header_home,
                               style: const TextStyle(
                                   color: Colors.white,
@@ -128,7 +140,10 @@ class _HeaderBarState extends State<HeaderBar> {
                                   fontWeight: FontWeight.bold)),
                         ),
                         InkWell(
-                          onTap: () {},
+                          onTap: () {
+                            Navigator.popAndPushNamed(
+                                context, ContactsPage.routeName);
+                          },
                           child: Text(S.of(context).header_contact,
                               style: const TextStyle(
                                   color: Colors.white,
@@ -136,7 +151,10 @@ class _HeaderBarState extends State<HeaderBar> {
                                   fontWeight: FontWeight.bold)),
                         ),
                         InkWell(
-                          onTap: () {},
+                          onTap: () {
+                            Navigator.popAndPushNamed(
+                                context, ProjectsPage.routeName);
+                          },
                           child: Text(S.of(context).header_projects,
                               style: const TextStyle(
                                   color: Colors.white,
@@ -144,7 +162,10 @@ class _HeaderBarState extends State<HeaderBar> {
                                   fontWeight: FontWeight.bold)),
                         ),
                         InkWell(
-                          onTap: () {},
+                          onTap: () => {
+                            Navigator.popAndPushNamed(
+                                context, AboutPage.routeName)
+                          },
                           child: Text(S.of(context).header_about,
                               style: const TextStyle(
                                   color: Colors.white,
@@ -172,19 +193,26 @@ class _HeaderBarState extends State<HeaderBar> {
                   ),
                 ),
                 isShowSlider
-                    ? InkWell(
-                        onTap: () {
-                          Navigator.of(context).push(HeroDialogRoute(
-                            builder: (context) {
-                              return MobileMenuWidget();
+                    ? Row(
+                        children: [
+                          SizedBox(
+                            width: 10,
+                          ),
+                          InkWell(
+                            onTap: () {
+                              Navigator.of(context).push(HeroDialogRoute(
+                                builder: (context) {
+                                  return MobileMenuWidget();
+                                },
+                              ));
                             },
-                          ));
-                        },
-                        child: Icon(
-                          Icons.menu,
-                          size: 40,
-                          color: Colors.white,
-                        ),
+                            child: Icon(
+                              Icons.menu,
+                              size: 40,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ],
                       )
                     : SizedBox.shrink(),
               ],

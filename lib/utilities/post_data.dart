@@ -98,13 +98,4 @@ List<Map<String, String>> postDataList = [
     'description':
         'Lorem ipsum Sed eiusmod esse aliqua sed incididunt aliqua incididunt mollit id et sit proident dolor nulla sed commodo est ad minim elit reprehenderit nisi officia aute incididunt velit sint in aliqua cillum in consequat consequat in culpa in anim.'
   },
-  // {
-  //   'id': '',
-  //   'link': 'assets/post_images/',
-  //   'title': '',
-  //   'creator': '',
-  //   'style': '',
-  //   'description':
-  //       'Lorem ipsum Sed eiusmod esse aliqua sed incididunt aliqua incididunt mollit id et sit proident dolor nulla sed commodo est ad minim elit reprehenderit nisi officia aute incididunt velit sint in aliqua cillum in consequat consequat in culpa in anim.'
-  // },
 ];
