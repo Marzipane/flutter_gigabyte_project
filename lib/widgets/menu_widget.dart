@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 const String _heroAddTodo = 'add-todo-hero';
 
@@ -28,23 +29,31 @@ class MobileMenuWidget extends StatelessWidget {
                   children: [
                     Row(
                       mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Center(
-                          child: Text(
-                            'GO TO',
-                            style: TextStyle(
-                                fontSize: 20,
-                                letterSpacing: 3,
-                                color: Colors.white54),
+                        SizedBox(),
+                        Text(
+                          'NAVIGATE TO:',
+                          style: TextStyle(
+                              fontSize: 20,
+                              letterSpacing: 3,
+                              color: Colors.white54),
+                        ),
+                        InkWell(
+                          onTap: () {
+                            Navigator.pop(context);
+                          },
+                          child: FaIcon(
+                            FontAwesomeIcons.xmark,
+                            size: 35,
+                            color: Colors.white54,
                           ),
                         )
                       ],
                     ),
                     SizedBox(
-                      height: 50,
+                      height: 30,
                     ),
-                    
                     Divider(
                       color: Colors.grey,
                       thickness: 0.2,
