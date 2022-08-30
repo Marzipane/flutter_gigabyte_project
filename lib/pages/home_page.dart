@@ -32,7 +32,7 @@ class _HomePageState extends State<HomePage> {
     final double height = MediaQuery.of(context).size.height;
     final double barHeight = MediaQuery.of(context).size.height;
     final double width = MediaQuery.of(context).size.width;
-    final bool isShowSlider = MediaQuery.of(context).size.width <= 900; 
+    final bool isShowSlider = MediaQuery.of(context).size.width <= 900;
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(children: [
@@ -243,17 +243,7 @@ class _HomePageState extends State<HomePage> {
         ]),
         Column(
           children: [
-            Container(
-              padding: const EdgeInsets.all(8.0),
-              decoration: BoxDecoration(boxShadow: [
-                BoxShadow(
-                  color: Colors.black.withOpacity(0.4),
-                  // spreadRadius: 2,
-                  // blurRadius: 20,
-                ),
-              ]),
-              child:  const HeaderBar(),
-            ),
+            const HeaderBar(),
             SizedBox(
               height: height * 0.3,
             ),
