@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_giga_app/widgets/header_bar_widget.dart';
-import '../widgets/footer_widget.dart';
 
 class AboutPage extends StatefulWidget {
   static const routeName = '/about-page';

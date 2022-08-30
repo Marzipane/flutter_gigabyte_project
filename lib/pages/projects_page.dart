@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_giga_app/widgets/header_bar_widget.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:url_launcher/url_launcher.dart';
-import '../widgets/footer_widget.dart';
 import 'dart:js' as js;
 
 class ProjectsPage extends StatefulWidget {

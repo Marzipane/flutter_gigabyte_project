@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_giga_app/widgets/header_bar_widget.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
-import '../widgets/footer_widget.dart';
 import 'dart:js' as js;
 
 class ContactsPage extends StatefulWidget {
@@ -39,7 +38,6 @@ class ContactsBodyWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final double height = MediaQuery.of(context).size.height;
     final double width = MediaQuery.of(context).size.width;
 
     return Container(
