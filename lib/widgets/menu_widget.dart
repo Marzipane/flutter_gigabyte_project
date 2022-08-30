@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_giga_app/pages/contacts_page.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
+import '../pages/about_page.dart';
+import '../pages/projects_page.dart';
 
 const String _heroAddTodo = 'add-todo-hero';
 
@@ -28,48 +33,75 @@ class MobileMenuWidget extends StatelessWidget {
                   children: [
                     Row(
                       mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Center(
-                          child: Text(
-                            'GO TO',
-                            style: TextStyle(
-                                fontSize: 20,
-                                letterSpacing: 3,
-                                color: Colors.white54),
+                        SizedBox(),
+                        Text(
+                          'NAVIGATE TO:',
+                          style: TextStyle(
+                              fontSize: 20,
+                              letterSpacing: 3,
+                              color: Colors.white54),
+                        ),
+                        InkWell(
+                          onTap: () {
+                            Navigator.pop(context);
+                          },
+                          child: FaIcon(
+                            FontAwesomeIcons.xmark,
+                            size: 35,
+                            color: Colors.white54,
                           ),
                         )
                       ],
                     ),
                     SizedBox(
-                      height: 50,
+                      height: 30,
                     ),
-                    
+                    Divider(
+                      color: Colors.grey,
+                      thickness: 0.2,
+                    ),
+                    GestureDetector(
+                      onTap: () => {Navigator.popAndPushNamed(context, '/')},
+                      child: ListTile(
+                        leading:
+                            Text('01', style: TextStyle(color: Colors.grey)),
+                        trailing: SizedBox.shrink(),
+                        title:
+                            Text('Home', style: TextStyle(color: Colors.white)),
+                      ),
+                    ),
+                    Divider(
+                      color: Colors.grey,
+                      thickness: 0.2,
+                    ),
+                    GestureDetector(
+                      onTap: () => {
+                        Navigator.popAndPushNamed(
+                            context, ContactsPage.routeName)
+                      },
+                      child: ListTile(
+                        leading:
+                            Text('02', style: TextStyle(color: Colors.grey)),
+                        trailing: SizedBox.shrink(),
+                        title: Text('Contacts',
+                            style: TextStyle(color: Colors.white)),
+                      ),
+                    ),
                     Divider(
                       color: Colors.grey,
                       thickness: 0.2,
                     ),
                     DropDownMenu(
                       title: 'Categories',
-                      number: '02',
-                      bodycard: Column(
+                      number: '03',
+                      bodyCard: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           GestureDetector(
                             onTap: () => {
-                              // Navigator.popAndPushNamed(context, DesignPage.routeName),
-                            },
-                            child: ListTile(
-                              leading: Text('-',
-                                  style: TextStyle(color: Colors.grey)),
-                              trailing: SizedBox.shrink(),
-                              title: Text('Design',
-                                  style: TextStyle(color: Colors.white)),
-                            ),
-                          ),
-                          GestureDetector(
-                            onTap: () => {
-                              // Navigator.popAndPushNamed(context, ProjectsPage.routeName),
+                              Navigator.popAndPushNamed(context, ProjectsPage.routeName),
                             },
                             child: ListTile(
                               leading: Text('-',
@@ -79,24 +111,25 @@ class MobileMenuWidget extends StatelessWidget {
                                   style: TextStyle(color: Colors.white)),
                             ),
                           ),
+                          GestureDetector(
+                            onTap: () => {
+                              Navigator.popAndPushNamed(
+                                  context, AboutPage.routeName),
+                            },
+                            child: ListTile(
+                              leading: Text('-',
+                                  style: TextStyle(color: Colors.grey)),
+                              trailing: SizedBox.shrink(),
+                              title: Text('About',
+                                  style: TextStyle(color: Colors.white)),
+                            ),
+                          ),
                         ],
                       ),
                     ),
                     Divider(
                       color: Colors.grey,
                       thickness: 0.2,
-                    ),
-                    GestureDetector(
-                      onTap: () => {
-                        // Navigator.popAndPushNamed(context,AboutPage.routeName)
-                      },
-                      child: ListTile(
-                        leading:
-                            Text('03', style: TextStyle(color: Colors.grey)),
-                        trailing: SizedBox.shrink(),
-                        title: Text('About',
-                            style: TextStyle(color: Colors.white)),
-                      ),
                     ),
                   ],
                 ),
@@ -110,15 +143,15 @@ class MobileMenuWidget extends StatelessWidget {
 }
 
 class DropDownMenu extends StatefulWidget {
-  String title;
-  String number;
-  Column bodycard;
+  final String title;
+  final String number;
+  final Column bodyCard;
 
   DropDownMenu(
       {Key? key,
       required this.title,
       required this.number,
-      required this.bodycard})
+      required this.bodyCard})
       : super(key: key);
 
   @override
@@ -153,7 +186,7 @@ class _DropDownMenuState extends State<DropDownMenu> {
           },
           body: Padding(
             padding: EdgeInsets.only(left: 20),
-            child: widget.bodycard,
+            child: widget.bodyCard,
           ),
           isExpanded: isExpanded,
         ),

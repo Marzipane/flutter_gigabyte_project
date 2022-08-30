@@ -3,15 +3,15 @@ import 'package:carousel_slider/carousel_slider.dart';
 
 import '../utilities/image_data.dart';
 
-class FullscreenSlider extends StatefulWidget {
-  const FullscreenSlider({Key? key, this.controller}) : super(key: key);
+class FullscreenSliderWidget extends StatefulWidget {
+  const FullscreenSliderWidget({Key? key, this.controller}) : super(key: key);
   final CarouselController? controller;
 
   @override
-  State<FullscreenSlider> createState() => _FullscreenSliderState();
+  State<FullscreenSliderWidget> createState() => _FullscreenSliderWidgetState();
 }
 
-class _FullscreenSliderState extends State<FullscreenSlider> {
+class _FullscreenSliderWidgetState extends State<FullscreenSliderWidget> {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -101,9 +101,9 @@ class _FullscreenSliderState extends State<FullscreenSlider> {
                   ),
                   Text(
                     item['main']!,
-                    style: const TextStyle(
+                    style: TextStyle(
                       color: Colors.white,
-                      fontSize: 60.0,
+                      fontSize: width <= 420 ? 30 : 60,
                       fontWeight: FontWeight.bold,
                     ),
                   ),

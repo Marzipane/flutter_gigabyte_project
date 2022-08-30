@@ -1,9 +1,8 @@
 import 'package:carousel_slider/carousel_controller.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_giga_app/pages/home_page.dart';
 
-class ChangePageWidget extends StatefulWidget {
-  const ChangePageWidget({
+class ChangePageButtonWidget extends StatefulWidget {
+  const ChangePageButtonWidget({
     Key? key,
     required CarouselController controller,
     required this.indexOfImage,
@@ -13,27 +12,23 @@ class ChangePageWidget extends StatefulWidget {
   final CarouselController _controller;
 
   @override
-  State<ChangePageWidget> createState() => _ChangePageWidgetState();
+  State<ChangePageButtonWidget> createState() => _ChangePageButtonWidgetState();
 }
 
-class _ChangePageWidgetState extends State<ChangePageWidget> {
+class _ChangePageButtonWidgetState extends State<ChangePageButtonWidget> {
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        setState(() {
-          pageIndex = widget.indexOfImage;
-        });
-        widget._controller.jumpToPage(pageIndex);
-        print(pageIndex);
+        widget._controller.jumpToPage(widget.indexOfImage);
       },
       child: Container(
         width: 40,
-        color: Colors.white.withOpacity(0.5),
+        color: Colors.white.withOpacity(0.3),
         child: Center(
           child: Text(
             '${widget.indexOfImage + 1}',
-            style: TextStyle(fontSize: 30),
+            style: TextStyle(fontSize: 30, color: Colors.white),
           ),
         ),
       ),
