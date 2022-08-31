@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_giga_app/widgets/footer_widget.dart';
 import 'package:flutter_giga_app/widgets/header_bar_widget.dart';
+
+import '../common/set_page_tittle.dart';
 
 class AboutPage extends StatefulWidget {
   static const routeName = '/about-page';
@@ -22,6 +25,7 @@ class _AboutPageState extends State<AboutPage> {
         child: Column(children: [
           Container(color: Colors.grey, child: HeaderBarWidget()),
           AboutBodyWidget(),
+          FooterWidget(),
           // Divider(thickness: 3, color: Colors.black.withOpacity(0.3)),
           // FooterWidget()
         ]),
@@ -37,6 +41,7 @@ class AboutBodyWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    setPageTitle('About', context);
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 20, vertical: 60),
       child: SizedBox(

@@ -2,14 +2,25 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'dart:js' as js;
 
+// class MediaBarWidget extends StatefulWidget {
+
+//   MediaBarWidget({
+//     Key? key,
+//     required this.barHeight,
+//   }) : super(key: key);
+
+//   final double barHeight;
+
+//   @override
+//   State<MediaBarWidget> createState() => _MediaBarWidgetState();
+// }
+
 class MediaBarWidget extends StatelessWidget {
-  const MediaBarWidget({
+  final double barHeight;
+  MediaBarWidget({
     Key? key,
     required this.barHeight,
   }) : super(key: key);
-
-  final double barHeight;
-
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -43,36 +54,22 @@ class MediaBarWidget extends StatelessWidget {
                         width: 20,
                       ),
                     ),
-                    InkWell(
-                      onTap: () {
-                        js.context.callMethod(
-                            'open', ['https://www.facebook.com/themarzipane/']);
-                      },
-                      child: const FaIcon(FontAwesomeIcons.facebookF),
+                    MediaButton(
+                      iconName: FontAwesomeIcons.facebookF,
+                      mediaURL: 'https://www.facebook.com/themarzipane/',
                     ),
-                    InkWell(
-                      onTap: () {
-                        js.context.callMethod('open', [
-                          'https://www.linkedin.com/in/danil-martsinkovskii-b86615245'
-                        ]);
-                      },
-                      child: const FaIcon(FontAwesomeIcons.linkedin),
+                    MediaButton(
+                      iconName: FontAwesomeIcons.linkedin,
+                      mediaURL:
+                          'https://www.linkedin.com/in/danil-martsinkovskii-b86615245',
                     ),
-                    InkWell(
-                      onTap: () {
-                        js.context.callMethod(
-                            'open', ['https://www.instagram.com/danil_marzi/']);
-                      },
-                      child: const FaIcon(FontAwesomeIcons.instagram),
+                    MediaButton(
+                      iconName: FontAwesomeIcons.instagram,
+                      mediaURL: 'https://www.instagram.com/danil_marzi/',
                     ),
-                    InkWell(
-                      onTap: () {
-                        js.context.callMethod(
-                            'open', ['https://github.com/Marzipane']);
-                      },
-                      child: const FaIcon(
-                        FontAwesomeIcons.github,
-                      ),
+                    MediaButton(
+                      iconName: FontAwesomeIcons.githubAlt,
+                      mediaURL: 'https://github.com/Marzipane/',
                     ),
                   ],
                 ),
@@ -81,6 +78,44 @@ class MediaBarWidget extends StatelessWidget {
           ),
         ),
       ],
+    );
+  }
+}
+
+class MediaButton extends StatefulWidget {
+  MediaButton({
+    Key? key,
+    required this.mediaURL,
+    required this.iconName,
+  }) : super(key: key);
+
+  var iconName;
+  var mediaURL;
+  @override
+  State<MediaButton> createState() => _MediaButtonState();
+}
+
+class _MediaButtonState extends State<MediaButton> {
+  double iconSize = 22;
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onHover: (value) {
+        if (value) {
+          setState(() {
+            iconSize = 24;
+          });
+        } else {
+          setState(() {
+            iconSize = 22;
+          });
+        }
+      },
+      onTap: () {
+        js.context.callMethod('open', [widget.mediaURL]);
+      },
+      child: FaIcon(widget.iconName, size: iconSize),
     );
   }
 }

@@ -27,7 +27,6 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
-  animated_text_kit: ^4.2.2
   carousel_slider: ^4.1.1
   cupertino_icons: ^1.0.2
   firebase_core: ^1.21.1
@@ -35,8 +34,13 @@ dependencies:
     sdk: flutter
   flutter_localizations:
     sdk: flutter
+  # Fontawesome Icon pack
   font_awesome_flutter: ^10.1.0
+  # localization package
   intl: ^0.17.0
+  # Removes hash from URL
+  url_strategy: ^0.2.0
+  # Video embedder
   webviewx: ^0.2.1
 dev_dependencies:
   flutter_lints: ^2.0.0
@@ -56,6 +60,8 @@ flutter:
     - assets/galery_images/
     - assets/post_images/
     - assets/profile_images/
+    - assets/education_images/
+    - assets/skills_images/
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
   # For details regarding adding assets from package dependencies, see

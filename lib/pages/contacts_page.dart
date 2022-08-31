@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_giga_app/widgets/footer_widget.dart';
 import 'package:flutter_giga_app/widgets/header_bar_widget.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'dart:js' as js;
+
+import '../common/set_page_tittle.dart';
 
 class ContactsPage extends StatefulWidget {
   static const routeName = '/contacts-page';
@@ -19,11 +22,13 @@ class _ContactsPageState extends State<ContactsPage> {
 
   @override
   Widget build(BuildContext context) {
+    setPageTitle('Contacts', context);
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(children: [
           Container(color: Colors.grey, child: HeaderBarWidget()),
-          ContactsBodyWidget()
+          ContactsBodyWidget(),
+          FooterWidget(),
         ]),
       ),
     );
@@ -98,7 +103,7 @@ class ContactsBodyWidget extends StatelessWidget {
   }
 }
 
-class ContactButton extends StatelessWidget {
+class ContactButton extends StatefulWidget {
   final IconData icon;
 
   final String mediaURL;
@@ -115,24 +120,41 @@ class ContactButton extends StatelessWidget {
       : super(key: key);
 
   @override
+  State<ContactButton> createState() => _ContactButtonState();
+}
+
+class _ContactButtonState extends State<ContactButton> {
+  var color = Colors.white;
+
+  @override
   Widget build(BuildContext context) {
     return Container(
       width: 400,
       decoration: BoxDecoration(
-          border: Border.all(), borderRadius: BorderRadius.circular(10)),
+          color: color,
+          border: Border.all(),
+          borderRadius: BorderRadius.circular(10)),
       child: InkWell(
+        onHover: (value) {
+          if (value) {
+            setState(() {
+              color = Colors.grey.withOpacity(0.4);
+            });
+          } else {
+            setState(() {
+              color = Colors.white;
+            });
+          }
+        },
         onTap: () {
-          js.context.callMethod('open', [mediaURL]);
+          js.context.callMethod('open', [widget.mediaURL]);
         },
         child: ListTile(
           contentPadding: EdgeInsets.all(6),
-          title: Text(mediaNickName),
-          leading: FaIcon(icon, color: iconColor),
+          title: Text(widget.mediaNickName),
+          leading: FaIcon(widget.icon, color: widget.iconColor),
         ),
       ),
     );
   }
 }
-
-
-

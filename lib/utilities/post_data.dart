@@ -129,3 +129,52 @@ List<Map<String, String>> projectsDataList = [
         'A PC application that as well was made for the university where using WEB-CAM attendance taken in modernest way.'
   },
 ];
+List<Map<String, String>> educationDataList = [
+  {
+    'id': '1',
+    'link': 'assets/education_images/gau-logo.png',
+    'title': 'Girne American University',
+    'creator': 'Marzipane',
+    'style': 'Education',
+    'description':
+        'Studied for 4 years at the GAU from 2017 to the summer of the 2022 at the Computer Engineering Faculty'
+  },
+  {
+    'id': '2',
+    'link': 'assets/education_images/itproger-logo.png',
+    'title': 'ItProger School',
+    'creator': 'Marzipane',
+    'style': 'Online Education',
+    'description':
+        'Studied at the ItProger school at the faculty of Python developer for 3 months in 2021'
+  },
+];
+List<Map<String, String>> skillsDataList = [
+  {
+    'id': '1',
+    'link': 'assets/skills_images/cplus-logo.png',
+    'title': 'C++ Language',
+    'creator': 'Marzipane',
+    'style': 'Console Applications',
+    'description':
+        'My career started with C++, mainly because it was the first language that was taught at the GAU, firstly it seemed a bit complicated.'
+  },
+  {
+    'id': '2',
+    'link': 'assets/skills_images/python-logo.jpg',
+    'title': 'Python Language',
+    'creator': 'Marzipane',
+    'style': 'Django Framework',
+    'description':
+        'Started learning Python, because it seemed simple and powerful language, then Django to build web applications'
+  },
+  {
+    'id': '3',
+    'link': 'assets/skills_images/dart-logo.jpg',
+    'title': 'Dart Language',
+    'creator': 'Marzipane',
+    'style': 'Flutter Framework',
+    'description':
+        "And the last but not least is Dart and it's framework Flutter. I was so excited to build such an amazing applications"
+  },
+];

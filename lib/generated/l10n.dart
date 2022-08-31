@@ -90,6 +90,16 @@ class S {
     );
   }
 
+  /// `Categories`
+  String get header_categories {
+    return Intl.message(
+      'Categories',
+      name: 'header_categories',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Follow`
   String get home_body_follow {
     return Intl.message(

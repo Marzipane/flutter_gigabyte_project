@@ -1,22 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_giga_app/widgets/footer_widget.dart';
 import 'package:flutter_giga_app/widgets/header_bar_widget.dart';
-import 'package:webviewx/webviewx.dart';
-import 'dart:js' as js;
 
 import '../common/set_page_tittle.dart';
-import '../widgets/projects_widget.dart';
-// import 'webview_page.dart';
+import '../widgets/education_widget.dart';
+import '../widgets/skills_widget.dart';
 
-class ProjectsPage extends StatefulWidget {
-  static const routeName = '/projects-page';
-  const ProjectsPage({super.key});
+class SkillsPage extends StatefulWidget {
+  static const routeName = '/skills-page';
+  const SkillsPage({super.key});
 
   @override
-  State<ProjectsPage> createState() => _ProjectsPageState();
+  State<SkillsPage> createState() => _SkillsPageState();
 }
 
-class _ProjectsPageState extends State<ProjectsPage> {
+class _SkillsPageState extends State<SkillsPage> {
   @override
   void initState() {
     super.initState();
@@ -24,17 +22,17 @@ class _ProjectsPageState extends State<ProjectsPage> {
 
   @override
   Widget build(BuildContext context) {
-    setPageTitle('Projects', context);
+    setPageTitle('Skills', context);
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(children: [
           Container(color: Colors.grey, child: HeaderBarWidget()),
-          ProjectsWidget(),
+          SkillsListWidget(),
           FooterWidget(),
+          // Divider(thickness: 3, color: Colors.black.withOpacity(0.3)),
+          // FooterWidget()
         ]),
       ),
     );
   }
 }
-
-
