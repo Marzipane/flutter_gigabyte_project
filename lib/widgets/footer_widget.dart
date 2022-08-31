@@ -17,11 +17,13 @@ class FooterWidget extends StatelessWidget {
     final double width = MediaQuery.of(context).size.width;
     return Container(
       color: Colors.grey.withOpacity(0.2),
-      height: width <= 700
-          ? height * 1.1
-          : width <= 1250
-              ? height * 1
-              : height * 0.8,
+      height: width <= 400
+          ? height * 1.2
+          : width <= 700
+              ? height * 1.1
+              : width <= 1250
+                  ? height * 1
+                  : height * 0.8,
       width: width,
       padding: EdgeInsets.only(
           left: width <= 1250 ? 40 : 20,
