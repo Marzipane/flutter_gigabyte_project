@@ -66,20 +66,7 @@ class MobileMenuWidget extends StatelessWidget {
                       bodyCard: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          GestureDetector(
-                            onTap: () => {
-                              Navigator.pushNamedAndRemoveUntil(context,
-                                  ProjectsPage.routeName, (route) => false),
-                            },
-                            child: ListTile(
-                              leading: Text('-',
-                                  style: TextStyle(color: Colors.grey)),
-                              trailing: SizedBox.shrink(),
-                              title: Text('Projects',
-                                  style: TextStyle(color: Colors.white)),
-                            ),
-                          ),
-                          GestureDetector(
+                           GestureDetector(
                             onTap: () => {
                               Navigator.pushNamedAndRemoveUntil(context,
                                   EducationPage.routeName, (route) => false),
@@ -118,6 +105,8 @@ class MobileMenuWidget extends StatelessWidget {
                                   style: TextStyle(color: Colors.white)),
                             ),
                           ),
+                         
+                          
                         ],
                       ),
                     ),
