@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_giga_app/widgets/header_bar_widget.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:url_launcher/url_launcher.dart';
 import 'dart:js' as js;
 
 class ContactsPage extends StatefulWidget {
@@ -135,8 +134,5 @@ class ContactButton extends StatelessWidget {
   }
 }
 
-Future<void> _launchUrl(_url) async {
-  if (!await launchUrl(_url)) {
-    throw 'Could not launch $_url';
-  }
-}
+
+

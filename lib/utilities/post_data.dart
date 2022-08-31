@@ -99,3 +99,33 @@ List<Map<String, String>> postDataList = [
         'Lorem ipsum Sed eiusmod esse aliqua sed incididunt aliqua incididunt mollit id et sit proident dolor nulla sed commodo est ad minim elit reprehenderit nisi officia aute incididunt velit sint in aliqua cillum in consequat consequat in culpa in anim.'
   },
 ];
+
+List<Map<String, String>> projectsDataList = [
+  {
+    'id': '1',
+    'link': 'https://www.youtube.com/embed/T-eWdNJ0JeA',
+    'title': 'Telegram Bot',
+    'creator': 'Marzipane',
+    'style': 'Instagram Helper',
+    'description':
+        'Bot that sorts the instagram tags in comfortable and convenient way'
+  },
+  {
+    'id': '2',
+    'link': 'https://www.youtube.com/embed/-MXP-JCxAjk',
+    'title': 'University Portal',
+    'creator': 'Marzipane',
+    'style': 'All students in one place',
+    'description':
+        'A web site that was made for the University, where things such as faculties, courses, announcements are located'
+  },
+  {
+    'id': '3',
+    'link': 'https://www.youtube.com/embed/Z_72uE0pUVA',
+    'title': 'Face ID Attendance',
+    'creator': 'Marzipane',
+    'style': 'Easy and modern attendance',
+    'description':
+        'A PC application that as well was made for the university where using WEB-CAM attendance taken in modernest way.'
+  },
+];

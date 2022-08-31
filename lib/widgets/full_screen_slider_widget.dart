@@ -103,7 +103,7 @@ class _FullscreenSliderWidgetState extends State<FullscreenSliderWidget> {
                     item['main']!,
                     style: TextStyle(
                       color: Colors.white,
-                      fontSize: width <= 420 ? 30 : 60,
+                      fontSize: width <= 420 ? 50 : 60,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
