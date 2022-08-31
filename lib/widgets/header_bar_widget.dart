@@ -112,7 +112,8 @@ class _HeaderBarWidgetState extends State<HeaderBarWidget> {
               flex: 1,
               child: InkWell(
                 onTap: () {
-                  Navigator.pushNamed(context, '/');
+                  Navigator.pushNamedAndRemoveUntil(
+                      context, '/', (route) => false);
                 },
                 child: Text(
                   'Marzipane.',
@@ -134,8 +135,10 @@ class _HeaderBarWidgetState extends State<HeaderBarWidget> {
                       children: [
                         MyWidget(),
                         InkWell(
-                          onTap: () =>
-                              {Navigator.popAndPushNamed(context, '/')},
+                          onTap: () => {
+                            Navigator.pushNamedAndRemoveUntil(
+                                context, '/', (route) => false)
+                          },
                           child: Text(S.of(context).header_home,
                               style: const TextStyle(
                                   color: Colors.white,
@@ -144,8 +147,8 @@ class _HeaderBarWidgetState extends State<HeaderBarWidget> {
                         ),
                         InkWell(
                           onTap: () {
-                            Navigator.popAndPushNamed(
-                                context, ContactsPage.routeName);
+                            Navigator.pushNamedAndRemoveUntil(context,
+                                ContactsPage.routeName, (route) => false);
                           },
                           child: Text(S.of(context).header_contact,
                               style: const TextStyle(
@@ -153,11 +156,10 @@ class _HeaderBarWidgetState extends State<HeaderBarWidget> {
                                   fontSize: 16,
                                   fontWeight: FontWeight.bold)),
                         ),
-                        
                         InkWell(
                           onTap: () => {
-                            Navigator.popAndPushNamed(
-                                context, AboutPage.routeName)
+                            Navigator.pushNamedAndRemoveUntil(
+                                context, AboutPage.routeName, (route) => false)
                           },
                           child: Text(S.of(context).header_about,
                               style: const TextStyle(
@@ -231,13 +233,15 @@ class MyWidget extends StatelessWidget {
       onSelected: (String result) {
         switch (result) {
           case 'education':
-            Navigator.popAndPushNamed(context, EducationPage.routeName);
+            Navigator.pushNamedAndRemoveUntil(
+                context, EducationPage.routeName, (route) => false);
             break;
           case 'skills':
-            Navigator.popAndPushNamed(context, SkillsPage.routeName);
+            Navigator.pushNamedAndRemoveUntil(
+                context, SkillsPage.routeName, (route) => false);
             break;
           case 'projects':
-            Navigator.popAndPushNamed(context, ProjectsPage.routeName);
+            Navigator.pushNamedAndRemoveUntil(context, ProjectsPage.routeName, (route) => false);
             break;
 
           default:

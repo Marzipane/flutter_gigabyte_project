@@ -3,23 +3,12 @@ import 'package:flutter_giga_app/widgets/footer_widget.dart';
 import 'package:flutter_giga_app/widgets/header_bar_widget.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'dart:js' as js;
-
 import '../common/set_page_tittle.dart';
 
-class ContactsPage extends StatefulWidget {
+class ContactsPage extends StatelessWidget {
   static const routeName = '/contacts-page';
   const ContactsPage({super.key});
-
   @override
-  State<ContactsPage> createState() => _ContactsPageState();
-}
-
-class _ContactsPageState extends State<ContactsPage> {
-  @override
-  void initState() {
-    super.initState();
-  }
-
   @override
   Widget build(BuildContext context) {
     setPageTitle('Contacts', context);

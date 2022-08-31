@@ -1,26 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_giga_app/widgets/footer_widget.dart';
 import 'package:flutter_giga_app/widgets/header_bar_widget.dart';
-import 'package:webviewx/webviewx.dart';
 import 'dart:js' as js;
-
 import '../common/set_page_tittle.dart';
 import '../widgets/projects_widget.dart';
-// import 'webview_page.dart';
 
-class ProjectsPage extends StatefulWidget {
+class ProjectsPage extends StatelessWidget {
   static const routeName = '/projects-page';
   const ProjectsPage({super.key});
-
-  @override
-  State<ProjectsPage> createState() => _ProjectsPageState();
-}
-
-class _ProjectsPageState extends State<ProjectsPage> {
-  @override
-  void initState() {
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -36,5 +23,3 @@ class _ProjectsPageState extends State<ProjectsPage> {
     );
   }
 }
-
-

@@ -133,22 +133,4 @@ class SkillsListWidget extends StatelessWidget {
   }
 }
 
-class NumberButton extends StatelessWidget {
-  const NumberButton({Key? key, required this.number}) : super(key: key);
 
-  final int number;
-
-  @override
-  Widget build(BuildContext context) {
-    return InkWell(
-      onTap: () {},
-      child: Text(
-        '$number',
-        style: TextStyle(
-          color: Colors.black,
-          fontSize: 24,
-        ),
-      ),
-    );
-  }
-}

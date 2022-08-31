@@ -103,7 +103,7 @@ List<Map<String, String>> postDataList = [
 List<Map<String, String>> projectsDataList = [
   {
     'id': '1',
-    'link': 'https://www.youtube.com/embed/T-eWdNJ0JeA',
+    'link': 'assets/project_images/tg-bot.jpeg',
     'title': 'Telegram Bot',
     'creator': 'Marzipane',
     'style': 'Instagram Helper',
@@ -112,7 +112,7 @@ List<Map<String, String>> projectsDataList = [
   },
   {
     'id': '2',
-    'link': 'https://www.youtube.com/embed/-MXP-JCxAjk',
+    'link': 'assets/project_images/std-portal.jpeg',
     'title': 'University Portal',
     'creator': 'Marzipane',
     'style': 'All students in one place',
@@ -121,7 +121,7 @@ List<Map<String, String>> projectsDataList = [
   },
   {
     'id': '3',
-    'link': 'https://www.youtube.com/embed/Z_72uE0pUVA',
+    'link': 'assets/project_images/face-id.png',
     'title': 'Face ID Attendance',
     'creator': 'Marzipane',
     'style': 'Easy and modern attendance',
