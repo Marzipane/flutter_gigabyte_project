@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../utilities/post_data.dart';
 import '../widgets/footer_widget.dart';
 import '../widgets/image_gallery_widget.dart';
 import '../widgets/posts_widget.dart';

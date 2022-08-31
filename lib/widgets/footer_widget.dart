@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_giga_app/pages/about_page.dart';
+import 'package:flutter_giga_app/pages/contacts_page.dart';
+import 'package:flutter_giga_app/pages/projects_page.dart';
+import 'dart:js' as js;
 
 class FooterWidget extends StatelessWidget {
   const FooterWidget({
@@ -23,7 +27,7 @@ class FooterWidget extends StatelessWidget {
           top: width <= 500 ? 40 : 100,
           bottom: 10),
       child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-        buildMainFooterBlock(width, height),
+        buildMainFooterBlock(width, height, context),
         SizedBox(
           height: width <= 350
               ? height * 0.03
@@ -66,7 +70,7 @@ class FooterWidget extends StatelessWidget {
     );
   }
 
-  Wrap buildMainFooterBlock(width, height) {
+  Wrap buildMainFooterBlock(width, height, context) {
     return Wrap(
       children: [
         SizedBox(
@@ -77,7 +81,7 @@ class FooterWidget extends StatelessWidget {
                   : width * 0.2,
           child: Column(
             children: [
-              Text('ABOUT OUR SITE'),
+              Text('ABOUT THIS SITE'),
               Divider(
                 color: Colors.black.withOpacity(0.7),
               ),
@@ -113,23 +117,38 @@ class FooterWidget extends StatelessWidget {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text('About us'),
+                  InkWell(
+                      onTap: () {
+                        Navigator.pushNamed(context, '/');
+                      },
+                      child: Text('Home')),
                   SizedBox(
                     height: 5,
                   ),
-                  Text('Blog'),
+                  InkWell(
+                      onTap: () {
+                        Navigator.pushNamed(context, AboutPage.routeName);
+                      },
+                      child: Text('About me')),
                   SizedBox(
                     height: 5,
                   ),
-                  Text('FAQ'),
+                  InkWell(
+                      onTap: () {
+                        Navigator.pushNamed(context, ContactsPage.routeName);
+                      },
+                      child: Text('Contacts')),
                   SizedBox(
                     height: 5,
                   ),
-                  Text('Terms'),
+                  InkWell(
+                      onTap: () {
+                        Navigator.pushNamed(context, ProjectsPage.routeName);
+                      },
+                      child: Text('Projects')),
                   SizedBox(
                     height: 5,
                   ),
-                  Text('Privacy Policy'),
                 ],
               ),
               SizedBox(
@@ -149,7 +168,7 @@ class FooterWidget extends StatelessWidget {
           child: Column(
             // crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text('FOLLOW US'),
+              Text('FOLLOW ME'),
               Divider(
                 color: Colors.black.withOpacity(0.7),
               ),
@@ -159,23 +178,49 @@ class FooterWidget extends StatelessWidget {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text('Twitter'),
+                  InkWell(
+                      onTap: () {
+                        js.context.callMethod(
+                            'open', ['https://www.facebook.com/themarzipane/']);
+                      },
+                      child: Text('Facebook')),
                   SizedBox(
                     height: 5,
                   ),
-                  Text('Facebook'),
+                  InkWell(
+                      onTap: () {
+                        js.context.callMethod('open', [
+                          'https://www.linkedin.com/in/danil-martsinkovskii-b86615245'
+                        ]);
+                      },
+                      child: Text('LinkedIn')),
                   SizedBox(
                     height: 5,
                   ),
-                  Text('LinkedIn'),
+                  InkWell(
+                      onTap: () {
+                        js.context.callMethod(
+                            'open', ['https://t.me/marzipane_flutter']);
+                      },
+                      child: Text('Telegram')),
                   SizedBox(
                     height: 5,
                   ),
-                  Text('Instagram'),
+                  InkWell(
+                      onTap: () {
+                        js.context.callMethod(
+                            'open', ['https://www.instagram.com/danil_marzi/']);
+                      },
+                      child: Text('Instagram')),
                   SizedBox(
                     height: 5,
                   ),
-                  Text('Telegram'),
+                  InkWell(
+                      onTap: () {
+                        js.context.callMethod(
+                            'open', ['https://github.com/Marzipane']);
+                      },
+                      child: Text('GitHub')),
                   SizedBox(
                     height: 5,
                   ),

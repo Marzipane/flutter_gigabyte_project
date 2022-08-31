@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import '../utilities/post_data.dart';
+import 'dart:js' as js;
+
 
 class PostsWidget extends StatelessWidget {
   const PostsWidget({
@@ -182,7 +184,11 @@ class PostsWidget extends StatelessWidget {
                         height: 10,
                       ),
                       InkWell(
-                        onTap: () {},
+                        onTap: () {
+                          js.context.callMethod('open', [
+                'https://cv-it.ru/danil_martsinkovskii/info/?lang=en'
+              ]);
+                        },
                         child: Column(
                           children: [
                             Text(
