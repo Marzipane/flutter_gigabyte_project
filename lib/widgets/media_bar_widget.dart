@@ -2,19 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'dart:js' as js;
 
-// class MediaBarWidget extends StatefulWidget {
-
-//   MediaBarWidget({
-//     Key? key,
-//     required this.barHeight,
-//   }) : super(key: key);
-
-//   final double barHeight;
-
-//   @override
-//   State<MediaBarWidget> createState() => _MediaBarWidgetState();
-// }
-
 class MediaBarWidget extends StatelessWidget {
   final double barHeight;
   MediaBarWidget({
@@ -89,8 +76,8 @@ class MediaButton extends StatefulWidget {
     required this.iconName,
   }) : super(key: key);
 
-  var iconName;
-  var mediaURL;
+  final IconData iconName;
+  final String mediaURL;
   @override
   State<MediaButton> createState() => _MediaButtonState();
 }

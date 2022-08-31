@@ -4,19 +4,9 @@ import 'package:flutter_giga_app/widgets/header_bar_widget.dart';
 
 import '../common/set_page_tittle.dart';
 
-class AboutPage extends StatefulWidget {
+class AboutPage extends StatelessWidget {
   static const routeName = '/about-page';
   const AboutPage({super.key});
-
-  @override
-  State<AboutPage> createState() => _AboutPageState();
-}
-
-class _AboutPageState extends State<AboutPage> {
-  @override
-  void initState() {
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -26,8 +16,6 @@ class _AboutPageState extends State<AboutPage> {
           Container(color: Colors.grey, child: HeaderBarWidget()),
           AboutBodyWidget(),
           FooterWidget(),
-          // Divider(thickness: 3, color: Colors.black.withOpacity(0.3)),
-          // FooterWidget()
         ]),
       ),
     );

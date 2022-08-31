@@ -4,7 +4,6 @@ import 'package:flutter_giga_app/pages/contacts_page.dart';
 import 'package:flutter_giga_app/pages/education_page.dart';
 import 'package:flutter_giga_app/pages/projects_page.dart';
 import 'dart:js' as js;
-
 import 'package:flutter_giga_app/pages/skills_page.dart';
 
 class FooterWidget extends StatelessWidget {
@@ -122,7 +121,8 @@ class FooterWidget extends StatelessWidget {
                 children: [
                   InkWell(
                     onTap: () {
-                      Navigator.pushNamed(context, '/');
+                      Navigator.pushNamedAndRemoveUntil(
+                          context, '/', (route) => false);
                     },
                     child: Text('Home'),
                   ),
@@ -131,7 +131,8 @@ class FooterWidget extends StatelessWidget {
                   ),
                   InkWell(
                     onTap: () {
-                      Navigator.pushNamed(context, AboutPage.routeName);
+                      Navigator.pushNamedAndRemoveUntil(
+                          context, AboutPage.routeName, (route) => false);
                     },
                     child: Text('About me'),
                   ),
@@ -140,7 +141,8 @@ class FooterWidget extends StatelessWidget {
                   ),
                   InkWell(
                     onTap: () {
-                      Navigator.pushNamed(context, ContactsPage.routeName);
+                      Navigator.pushNamedAndRemoveUntil(
+                          context, ContactsPage.routeName, (route) => false);
                     },
                     child: Text('Contacts'),
                   ),
@@ -149,7 +151,8 @@ class FooterWidget extends StatelessWidget {
                   ),
                   InkWell(
                     onTap: () {
-                      Navigator.pushNamed(context, ProjectsPage.routeName);
+                      Navigator.pushNamedAndRemoveUntil(
+                          context, ProjectsPage.routeName, (route) => false);
                     },
                     child: Text('Projects'),
                   ),
@@ -158,7 +161,8 @@ class FooterWidget extends StatelessWidget {
                   ),
                   InkWell(
                     onTap: () {
-                      Navigator.pushNamed(context, EducationPage.routeName);
+                      Navigator.pushNamedAndRemoveUntil(
+                          context, EducationPage.routeName, (route) => false);
                     },
                     child: Text('Education'),
                   ),
@@ -167,7 +171,8 @@ class FooterWidget extends StatelessWidget {
                   ),
                   InkWell(
                     onTap: () {
-                      Navigator.pushNamed(context, SkillsPage.routeName);
+                      Navigator.pushNamedAndRemoveUntil(
+                          context, SkillsPage.routeName, (route) => false);
                     },
                     child: Text('Skills'),
                   ),

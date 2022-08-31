@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:webviewx/webviewx.dart';
 import '../utilities/post_data.dart';
 import 'dart:js' as js;
 
@@ -26,7 +25,6 @@ class ProjectsWidget extends StatelessWidget {
   }
 
   Wrap buildProjectPosts(double width) {
-    late WebViewXController webviewController;
     return Wrap(
       spacing: 10,
       runSpacing: 40,
@@ -62,14 +60,11 @@ class ProjectsWidget extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Center(
-                    child: WebViewX(
-                      height: 200,
-                      width: 300,
-                      initialContent: post['link']!,
-                      initialSourceType: SourceType.url,
-                      onWebViewCreated: (controller) =>
-                          webviewController = controller,
-                      javascriptMode: JavascriptMode.unrestricted,
+                    child: Center(
+                      child: Image.asset(
+                        post['link']!,
+                        height: 200,
+                      ),
                     ),
                   ),
                   SizedBox(

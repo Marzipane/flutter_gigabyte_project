@@ -68,7 +68,8 @@ class MobileMenuWidget extends StatelessWidget {
                         children: [
                           GestureDetector(
                             onTap: () => {
-                              Navigator.popAndPushNamed(context, ProjectsPage.routeName),
+                              Navigator.pushNamedAndRemoveUntil(context,
+                                  ProjectsPage.routeName, (route) => false),
                             },
                             child: ListTile(
                               leading: Text('-',
@@ -80,8 +81,8 @@ class MobileMenuWidget extends StatelessWidget {
                           ),
                           GestureDetector(
                             onTap: () => {
-                              Navigator.popAndPushNamed(
-                                  context, EducationPage.routeName),
+                              Navigator.pushNamedAndRemoveUntil(context,
+                                  EducationPage.routeName, (route) => false),
                             },
                             child: ListTile(
                               leading: Text('-',
@@ -93,8 +94,8 @@ class MobileMenuWidget extends StatelessWidget {
                           ),
                           GestureDetector(
                             onTap: () => {
-                              Navigator.popAndPushNamed(
-                                  context, SkillsPage.routeName),
+                              Navigator.pushNamedAndRemoveUntil(context,
+                                  SkillsPage.routeName, (route) => false),
                             },
                             child: ListTile(
                               leading: Text('-',
@@ -106,8 +107,8 @@ class MobileMenuWidget extends StatelessWidget {
                           ),
                           GestureDetector(
                             onTap: () => {
-                              Navigator.popAndPushNamed(
-                                  context, ProjectsPage.routeName),
+                              Navigator.pushNamedAndRemoveUntil(context,
+                                  ProjectsPage.routeName, (route) => false),
                             },
                             child: ListTile(
                               leading: Text('-',
@@ -125,7 +126,10 @@ class MobileMenuWidget extends StatelessWidget {
                       thickness: 0.2,
                     ),
                     GestureDetector(
-                      onTap: () => {Navigator.popAndPushNamed(context, '/')},
+                      onTap: () => {
+                        Navigator.pushNamedAndRemoveUntil(
+                            context, '/', (route) => false)
+                      },
                       child: ListTile(
                         leading:
                             Text('02', style: TextStyle(color: Colors.grey)),
@@ -140,8 +144,8 @@ class MobileMenuWidget extends StatelessWidget {
                     ),
                     GestureDetector(
                       onTap: () => {
-                        Navigator.popAndPushNamed(
-                            context, ContactsPage.routeName)
+                        Navigator.pushNamedAndRemoveUntil(
+                            context, ContactsPage.routeName, (route) => false)
                       },
                       child: ListTile(
                         leading:
@@ -157,8 +161,8 @@ class MobileMenuWidget extends StatelessWidget {
                     ),
                     GestureDetector(
                       onTap: () => {
-                        Navigator.popAndPushNamed(
-                            context, AboutPage.routeName)
+                        Navigator.pushNamedAndRemoveUntil(
+                            context, AboutPage.routeName, (route) => false)
                       },
                       child: ListTile(
                         leading:
@@ -172,7 +176,6 @@ class MobileMenuWidget extends StatelessWidget {
                       color: Colors.grey,
                       thickness: 0.2,
                     ),
-                    
                   ],
                 ),
               ),
