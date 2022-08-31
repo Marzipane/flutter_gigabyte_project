@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_giga_app/pages/about_page.dart';
 import 'package:flutter_giga_app/pages/contacts_page.dart';
+import 'package:flutter_giga_app/pages/education_page.dart';
+import 'package:flutter_giga_app/pages/skills_page.dart';
 import 'pages/home_page.dart';
 import 'pages/error_page.dart';
 import 'pages/projects_page.dart';
@@ -23,6 +25,14 @@ class RouteGenerator {
       case ProjectsPage.routeName:
         {
           return createRoute(page: const ProjectsPage());
+        }
+      case EducationPage.routeName:
+        {
+          return createRoute(page: const EducationPage());
+        }
+      case SkillsPage.routeName:
+        {
+          return createRoute(page: const SkillsPage());
         }
 
       default:

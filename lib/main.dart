@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:url_strategy/url_strategy.dart';
 import 'route_generator.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'generated/l10n.dart';
 
 void main() {
+  setPathUrlStrategy();
   runApp(MaterialApp(
     theme: ThemeData(
         textTheme: TextTheme(

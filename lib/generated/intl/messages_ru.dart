@@ -23,6 +23,7 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "header_about": MessageLookupByLibrary.simpleMessage("О нас"),
+        "header_categories": MessageLookupByLibrary.simpleMessage("Категории"),
         "header_contact": MessageLookupByLibrary.simpleMessage("Контакты"),
         "header_home": MessageLookupByLibrary.simpleMessage("Домашняя"),
         "header_projects": MessageLookupByLibrary.simpleMessage("Проэкты"),

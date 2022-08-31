@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_giga_app/pages/contacts_page.dart';
+import 'package:flutter_giga_app/pages/education_page.dart';
+import 'package:flutter_giga_app/pages/skills_page.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../pages/about_page.dart';
@@ -58,44 +60,9 @@ class MobileMenuWidget extends StatelessWidget {
                     SizedBox(
                       height: 30,
                     ),
-                    Divider(
-                      color: Colors.grey,
-                      thickness: 0.2,
-                    ),
-                    GestureDetector(
-                      onTap: () => {Navigator.popAndPushNamed(context, '/')},
-                      child: ListTile(
-                        leading:
-                            Text('01', style: TextStyle(color: Colors.grey)),
-                        trailing: SizedBox.shrink(),
-                        title:
-                            Text('Home', style: TextStyle(color: Colors.white)),
-                      ),
-                    ),
-                    Divider(
-                      color: Colors.grey,
-                      thickness: 0.2,
-                    ),
-                    GestureDetector(
-                      onTap: () => {
-                        Navigator.popAndPushNamed(
-                            context, ContactsPage.routeName)
-                      },
-                      child: ListTile(
-                        leading:
-                            Text('02', style: TextStyle(color: Colors.grey)),
-                        trailing: SizedBox.shrink(),
-                        title: Text('Contacts',
-                            style: TextStyle(color: Colors.white)),
-                      ),
-                    ),
-                    Divider(
-                      color: Colors.grey,
-                      thickness: 0.2,
-                    ),
                     DropDownMenu(
                       title: 'Categories',
-                      number: '03',
+                      number: '01',
                       bodyCard: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -114,13 +81,39 @@ class MobileMenuWidget extends StatelessWidget {
                           GestureDetector(
                             onTap: () => {
                               Navigator.popAndPushNamed(
-                                  context, AboutPage.routeName),
+                                  context, EducationPage.routeName),
                             },
                             child: ListTile(
                               leading: Text('-',
                                   style: TextStyle(color: Colors.grey)),
                               trailing: SizedBox.shrink(),
-                              title: Text('About',
+                              title: Text('Education',
+                                  style: TextStyle(color: Colors.white)),
+                            ),
+                          ),
+                          GestureDetector(
+                            onTap: () => {
+                              Navigator.popAndPushNamed(
+                                  context, SkillsPage.routeName),
+                            },
+                            child: ListTile(
+                              leading: Text('-',
+                                  style: TextStyle(color: Colors.grey)),
+                              trailing: SizedBox.shrink(),
+                              title: Text('Skills',
+                                  style: TextStyle(color: Colors.white)),
+                            ),
+                          ),
+                          GestureDetector(
+                            onTap: () => {
+                              Navigator.popAndPushNamed(
+                                  context, ProjectsPage.routeName),
+                            },
+                            child: ListTile(
+                              leading: Text('-',
+                                  style: TextStyle(color: Colors.grey)),
+                              trailing: SizedBox.shrink(),
+                              title: Text('Projects',
                                   style: TextStyle(color: Colors.white)),
                             ),
                           ),
@@ -131,6 +124,55 @@ class MobileMenuWidget extends StatelessWidget {
                       color: Colors.grey,
                       thickness: 0.2,
                     ),
+                    GestureDetector(
+                      onTap: () => {Navigator.popAndPushNamed(context, '/')},
+                      child: ListTile(
+                        leading:
+                            Text('02', style: TextStyle(color: Colors.grey)),
+                        trailing: SizedBox.shrink(),
+                        title:
+                            Text('Home', style: TextStyle(color: Colors.white)),
+                      ),
+                    ),
+                    Divider(
+                      color: Colors.grey,
+                      thickness: 0.2,
+                    ),
+                    GestureDetector(
+                      onTap: () => {
+                        Navigator.popAndPushNamed(
+                            context, ContactsPage.routeName)
+                      },
+                      child: ListTile(
+                        leading:
+                            Text('03', style: TextStyle(color: Colors.grey)),
+                        trailing: SizedBox.shrink(),
+                        title: Text('Contacts',
+                            style: TextStyle(color: Colors.white)),
+                      ),
+                    ),
+                    Divider(
+                      color: Colors.grey,
+                      thickness: 0.2,
+                    ),
+                    GestureDetector(
+                      onTap: () => {
+                        Navigator.popAndPushNamed(
+                            context, AboutPage.routeName)
+                      },
+                      child: ListTile(
+                        leading:
+                            Text('04', style: TextStyle(color: Colors.grey)),
+                        trailing: SizedBox.shrink(),
+                        title: Text('About',
+                            style: TextStyle(color: Colors.white)),
+                      ),
+                    ),
+                    Divider(
+                      color: Colors.grey,
+                      thickness: 0.2,
+                    ),
+                    
                   ],
                 ),
               ),

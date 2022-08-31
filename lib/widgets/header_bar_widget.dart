@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_giga_app/pages/about_page.dart';
+import 'package:flutter_giga_app/pages/education_page.dart';
 import 'package:flutter_giga_app/pages/projects_page.dart';
+import 'package:flutter_giga_app/pages/skills_page.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../../generated/l10n.dart';
 import '../pages/contacts_page.dart';
@@ -130,6 +132,7 @@ class _HeaderBarWidgetState extends State<HeaderBarWidget> {
                   child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
+                        MyWidget(),
                         InkWell(
                           onTap: () =>
                               {Navigator.popAndPushNamed(context, '/')},
@@ -150,17 +153,7 @@ class _HeaderBarWidgetState extends State<HeaderBarWidget> {
                                   fontSize: 16,
                                   fontWeight: FontWeight.bold)),
                         ),
-                        InkWell(
-                          onTap: () {
-                            Navigator.popAndPushNamed(
-                                context, ProjectsPage.routeName);
-                          },
-                          child: Text(S.of(context).header_projects,
-                              style: const TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold)),
-                        ),
+                        
                         InkWell(
                           onTap: () => {
                             Navigator.popAndPushNamed(
@@ -220,6 +213,78 @@ class _HeaderBarWidgetState extends State<HeaderBarWidget> {
           )
         ],
       )),
+    );
+  }
+}
+
+class MyWidget extends StatelessWidget {
+  const MyWidget({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    final double width = MediaQuery.of(context).size.width;
+    return PopupMenuButton<String>(
+      position: PopupMenuPosition.under,
+      padding: EdgeInsets.zero,
+      onSelected: (String result) {
+        switch (result) {
+          case 'education':
+            Navigator.popAndPushNamed(context, EducationPage.routeName);
+            break;
+          case 'skills':
+            Navigator.popAndPushNamed(context, SkillsPage.routeName);
+            break;
+          case 'projects':
+            Navigator.popAndPushNamed(context, ProjectsPage.routeName);
+            break;
+
+          default:
+        }
+      },
+      itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
+        const PopupMenuItem<String>(
+          padding: EdgeInsets.only(left: 5),
+          value: 'education',
+          child: ListTile(
+            title: Text('Education'),
+            trailing: Icon(Icons.school),
+          ),
+        ),
+        const PopupMenuItem<String>(
+          padding: EdgeInsets.only(left: 5),
+          value: 'skills',
+          child: ListTile(
+            title: Text('Skills'),
+            trailing: Icon(Icons.explore),
+          ),
+        ),
+        const PopupMenuItem<String>(
+          padding: EdgeInsets.only(left: 5),
+          value: 'projects',
+          child: ListTile(
+            title: Text('Projects'),
+            trailing: FaIcon(FontAwesomeIcons.buildingColumns),
+          ),
+        ),
+      ],
+      // offset: Offset.fromDirection(1, 5),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text(
+            'Categories',
+            style: TextStyle(
+                color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
+          ),
+          const Icon(
+            Icons.keyboard_arrow_down_rounded,
+            size: 40,
+            color: Colors.white,
+          ),
+        ],
+      ),
     );
   }
 }

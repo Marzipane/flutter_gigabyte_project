@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_giga_app/pages/about_page.dart';
 import 'package:flutter_giga_app/pages/contacts_page.dart';
+import 'package:flutter_giga_app/pages/education_page.dart';
 import 'package:flutter_giga_app/pages/projects_page.dart';
 import 'dart:js' as js;
+
+import 'package:flutter_giga_app/pages/skills_page.dart';
 
 class FooterWidget extends StatelessWidget {
   const FooterWidget({
@@ -118,36 +121,55 @@ class FooterWidget extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   InkWell(
-                      onTap: () {
-                        Navigator.pushNamed(context, '/');
-                      },
-                      child: Text('Home')),
+                    onTap: () {
+                      Navigator.pushNamed(context, '/');
+                    },
+                    child: Text('Home'),
+                  ),
                   SizedBox(
                     height: 5,
                   ),
                   InkWell(
-                      onTap: () {
-                        Navigator.pushNamed(context, AboutPage.routeName);
-                      },
-                      child: Text('About me')),
+                    onTap: () {
+                      Navigator.pushNamed(context, AboutPage.routeName);
+                    },
+                    child: Text('About me'),
+                  ),
                   SizedBox(
                     height: 5,
                   ),
                   InkWell(
-                      onTap: () {
-                        Navigator.pushNamed(context, ContactsPage.routeName);
-                      },
-                      child: Text('Contacts')),
+                    onTap: () {
+                      Navigator.pushNamed(context, ContactsPage.routeName);
+                    },
+                    child: Text('Contacts'),
+                  ),
                   SizedBox(
                     height: 5,
                   ),
                   InkWell(
-                      onTap: () {
-                        Navigator.pushNamed(context, ProjectsPage.routeName);
-                      },
-                      child: Text('Projects')),
+                    onTap: () {
+                      Navigator.pushNamed(context, ProjectsPage.routeName);
+                    },
+                    child: Text('Projects'),
+                  ),
                   SizedBox(
                     height: 5,
+                  ),
+                  InkWell(
+                    onTap: () {
+                      Navigator.pushNamed(context, EducationPage.routeName);
+                    },
+                    child: Text('Education'),
+                  ),
+                  SizedBox(
+                    height: 5,
+                  ),
+                  InkWell(
+                    onTap: () {
+                      Navigator.pushNamed(context, SkillsPage.routeName);
+                    },
+                    child: Text('Skills'),
                   ),
                 ],
               ),
