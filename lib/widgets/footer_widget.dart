@@ -18,7 +18,7 @@ class FooterWidget extends StatelessWidget {
     return Container(
       color: Colors.grey.withOpacity(0.2),
       height: width <= 400
-          ? height * 1.2
+          ? height * 1.3
           : width <= 700
               ? height * 1.1
               : width <= 1250
